@@ -4,6 +4,8 @@ import (
 	"memo_sample/di"
 	"memo_sample/infra/database"
 	"net/http"
+
+	_ "net/http/pprof"
 )
 
 func main() {
@@ -15,5 +17,5 @@ func main() {
 	http.HandleFunc("/post", api.PostMemo)
 	http.HandleFunc("/post/memo_tags", api.PostMemoAndTags)
 	http.HandleFunc("/search/tags_memos", api.SearchTagsAndMemos)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":6060", nil)
 }
